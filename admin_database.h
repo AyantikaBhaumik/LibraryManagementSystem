@@ -14,16 +14,34 @@ class admin_database
             ofile.write((char*)&ad,sizeof(ad));
             ofile.close();
         }
-        void download()
+        vector<admin> download()
         {
+            vector<admin> data;
             admin ad;
             ifstream ifile;
             ifile.open("admin",ios::in);
             while(ifile.read((char*)&ad,sizeof(ad)))
             {
-                ad.display();
+                data.push_back(ad);
             }
             ifile.close();
+            return data;
+        }
+        bool extract(vector<admin> &info)
+        {
+            if(info.size()==0){cout<<"No data"<<endl;}
+            for(int i=0;i<info.size();i++)
+            {
+                info[i].display();
+            }
+            cout<<"Total Data : "<<info.size()<<endl;
+            cout<<"Return to Menu (y/n) : ";
+            char choice;
+            cin>>choice;
+            if(choice=='y'||choice=='Y')
+                return true;
+            else
+                return false;
         }
         vector<admin> searchbyAdminID(char element[])
         {
@@ -46,7 +64,7 @@ class admin_database
         vector<admin> searchbyName(char *Name)
         {
             vector<admin> searchRes;
-            cout<<"Key : ";
+            cout<<"Key : "<<Name<<endl;
             admin ad;
             ifstream ifile;
             ifile.open("admin",ios::in);

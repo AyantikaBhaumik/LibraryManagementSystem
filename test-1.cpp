@@ -1,19 +1,31 @@
 #include<iostream>
 #include<vector>
-#include"admin_database.h"
+#include"adminMenu.h"
 
 using namespace std;
 
 int main()
 {
-    char a[100];
-    strcpy(a,"pratyay");
-
-    admin_database db;
-    vector<admin> info=db.searchbyName(a);
-    for(int i=0;i<info.size();i++)
+     book b;
+     book_database db;
+     /* b.new_book();
+     db.upload(b); */ 
+    /*   for(int i=0;i<5;i++)
     {
-        info[i].display();
-    }
+        b.new_book();
+        db.upload(b); 
+    }  */ 
+        /* char a[100];
+    strcpy(a,"Kolkata");
+
+    vector<book> info=db.download();
+    cout<<db.extract(info);    
+     */
+    // db.deleteRecord(1);
+    //db.upload(2);
+     admin_menu ad;
+     ad.menu(); 
+    //
+
 
 }

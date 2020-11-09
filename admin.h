@@ -10,10 +10,11 @@ class admin
     private:
         char username[100], password[100];
     public:
-        admin():name("name"),gender("gender"){}
+        admin():name(),gender(){}
         void new_admin()
         {
             cout<<"Name : ";
+            cin.ignore();
             cin.getline(name,100);
             cout<<"Administration Id : ";
             cin.getline(admin_id,100);
